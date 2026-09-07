@@ -11,15 +11,12 @@
         body { background-color: #080c14; color: #94a3b8; font-family: 'Rajdhani', sans-serif; line-height: 1.5; padding: 30px 15px; display: flex; justify-content: center; }
         .container { max-width: 850px; width: 100%; }
 
-        /* Banner cảnh báo phong cách System Alert */
         .system-alert { background: rgba(239, 68, 68, 0.1); border-left: 4px solid #ef4444; border-top: 1px solid rgba(239, 68, 68, 0.3); border-right: 1px solid rgba(239, 68, 68, 0.3); border-bottom: 1px solid rgba(239, 68, 68, 0.3); padding: 15px 20px; margin-bottom: 25px; color: #fca5a5; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; }
         .system-alert strong { color: #ef4444; font-family: 'Orbitron', sans-serif; font-size: 0.9rem; }
 
-        /* Khung chứa dạng Mecha Panel */
         .mecha-card { background: #0f172a; border: 1px solid #1e293b; border-left: 3px solid #38bdf8; border-radius: 4px; padding: 25px; margin-bottom: 25px; position: relative; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8); }
         .mecha-card::before { content: '//'; position: absolute; top: 10px; right: 15px; color: #334155; font-family: 'Orbitron', sans-serif; font-size: 0.8rem; }
 
-        /* Header profile Robot */
         .profile-header { display: flex; align-items: center; gap: 25px; }
         .avatar { width: 130px; height: 160px; border-radius: 4px; object-fit: cover; border: 2px solid #38bdf8; box-shadow: 0 0 15px rgba(56, 189, 248, 0.4); flex-shrink: 0; clip-path: polygon(0 0, 100% 0, 100% 90%, 90% 100%, 0 100%); }
         .profile-info h1 { font-family: 'Orbitron', sans-serif; font-size: 1.8rem; color: #f8fafc; font-weight: 900; letter-spacing: 1.5px; text-transform: uppercase; }
@@ -37,7 +34,6 @@
         h2 { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; color: #f8fafc; margin-bottom: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 10px; }
         h2::before { content: '>'; color: #38bdf8; }
 
-        /* Bảng thông số kỹ thuật */
         .tech-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
         .tech-table th, .tech-table td { border: 1px solid #1e293b; padding: 12px 16px; text-align: left; font-size: 0.95rem; }
         .tech-table th { background: #162032; color: #38bdf8; font-family: 'Orbitron', sans-serif; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; width: 30%; }
@@ -61,17 +57,15 @@
 
 <div class="container">
 
-    <!-- Cảnh báo hệ thống (Giải trình lỗi) -->
     <div class="system-alert">
         <strong>[SYSTEM OVERRIDE // BÁO CÁO SỰ CỐ PHẦN A]</strong><br>
         Trang Hồ sơ Kỹ thuật này được kích hoạt trên GitHub Pages để thay thế hoàn toàn cho tài khoản LinkedIn cá nhân do hệ thống bị nghẽn mạng / lỗi xác minh reCAPTCHA theo đúng quy trình xử lý sự cố học phần.
     </div>
 
-    <!-- Header profile robot -->
     <div class="mecha-card">
         <div class="profile-header">
-            <!-- Nhúng trực tiếp ảnh thẻ Base64 chuẩn không lỗi -->
-            <img class="avatar" src="https://raw.githubusercontent.com/k265520216450-spec/portfolio/main/avatar.jpg" alt="Trần Văn Bình" onerror="this.src='https://i.ibb.co/30Z3s4s/avatar-tranvanbinh.jpg'">
+            <!-- Đường dẫn ảnh nội bộ trực tiếp từ repo GitHub của m, bao không bao giờ lỗi -->
+            <img class="avatar" src="avatar.jpg" alt="Trần Văn Bình" onerror="this.src='https://raw.githubusercontent.com/k265520216450-spec/portfolio/main/avatar.jpg'">
             <div class="profile-info">
                 <h1>TRẦN VĂN BÌNH</h1>
                 <div class="headline">SYSTEM ENGINEER // AUTOMATION & CONTROL</div>
@@ -87,7 +81,6 @@
         </div>
     </div>
 
-    <!-- Thông số cá nhân -->
     <div class="mecha-card">
         <h2>THÔNG SỐ CƠ BẢN (DATA MATRIX)</h2>
         <table class="tech-table">
@@ -118,11 +111,10 @@
         </table>
     </div>
 
-    <!-- Giới thiệu bản thân -->
     <div class="mecha-card">
         <h2>2. ABOUT // GIỚI THIỆU BẢN THÂN</h2>
         <p style="text-align: justify; margin-bottom: 12px;">
-            Tôi là sinh viên năm nhất ngành Công nghệ Kỹ thuật điều khiển và Tự động hóa tại Trường Đại học Kỹ thuật Công nghiệp, tôi đang chủ động trang bị nền tảng năng lực số toàn diện đáp ứng tiêu chuẩn Công nghiệp 4.0. Hiện tại, tôi tập trung làm chủ các hệ thống đồng bộ dữ liệu đám mây, tối ưu hóa quản lý dự án qua Git/GitHub và ứng dụng AI vào nghiên cứu. Dù mới bắt đầu hành trình đại học, nhưng tôi đã tự xây dựng thành công trang Portfolio cá nhân trực tuyến trên GitHub Pages để lưu trữ sản phẩm thực hành. Với mục tiêu nắm vững chuyên môn điều khiển tự động và phát triển tư tư duy kỹ thuật, tôi luôn sẵn sàng học hỏi và tìm kiếm các cơ hội thực tập, trải nghiệm thực tế.
+            Tôi là sinh viên năm nhất ngành Công nghệ Kỹ thuật điều khiển và Tự động hóa tại Trường Đại học Kỹ thuật Công nghiệp, tôi đang chủ động trang bị nền tảng năng lực số toàn diện đáp ứng tiêu chuẩn Công nghiệp 4.0. Hiện tại, tôi tập trung làm chủ các hệ thống đồng bộ dữ liệu đám mây, tối ưu hóa quản lý dự án qua Git/GitHub và ứng dụng AI vào nghiên cứu. Dù mới bắt đầu hành trình đại học, nhưng tôi đã tự xây dựng thành công trang Portfolio cá nhân trực tuyến trên GitHub Pages để lưu trữ sản phẩm thực hành. Với mục tiêu nắm vững chuyên môn điều khiển tự động và phát triển tư duy kỹ thuật, tôi luôn sẵn sàng học hỏi và tìm kiếm các cơ hội thực tập, trải nghiệm thực tế.
         </p>
         <ul>
             <li><strong>Định hướng học tập:</strong> Tập trung làm chủ các hệ thống đồng bộ đám mây (Cloud Synchronization), tối ưu hóa quy trình làm việc với Git/GitHub, và khai thác công cụ AI để nâng cao hiệu suất học tập - nghiên cứu.</li>
@@ -130,7 +122,6 @@
         </ul>
     </div>
 
-    <!-- Học vấn & Khung năng lực -->
     <div class="mecha-card">
         <h2>3. EDUCATION & COMPETENCIES</h2>
         
@@ -148,7 +139,6 @@
         </ul>
     </div>
 
-    <!-- Sản phẩm trực tuyến -->
     <div class="mecha-card">
         <h2>4. PORTFOLIO // SẢN PHẨM TRỰC TUYẾN</h2>
         <p>• <strong>Website Portfolio cá nhân:</strong> <a href="https://k265520216450-spec.github.io/portfolio/" target="_blank" class="inline-link">https://k265520216450-spec.github.io/portfolio/</a></p>
