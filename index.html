@@ -3,250 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HỒ SƠ ĐỊNH VỊ SỐ CÁ NHÂN - TRẦN VĂN BÌNH</title>
+    <title>Hồ Sơ Định Vị Số Cá Nhân - Trần Văn Bình ✨</title>
     <style>
-        :root {
-            --primary-color: #1a365d;
-            --secondary-color: #2b6cb0;
-            --accent-color: #3182ce;
-            --text-color: #2d3748;
-            --bg-color: #f7fafc;
-            --card-bg: #ffffff;
-            --border-color: #e2e8f0;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Nunito', sans-serif; }
+        body { background-color: #fff5f7; color: #4a4a4a; line-height: 1.6; padding: 30px 15px; display: flex; justify-content: center; }
+        .container { max-width: 800px; width: 100%; }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 20px;
-        }
+        /* Thông báo sự cố kiểu cute */
+        .cute-alert { background: #fff0f3; border: 2px dashed #ffb3c1; border-radius: 20px; padding: 16px 22px; margin-bottom: 25px; color: #c9184a; font-weight: 600; font-size: 0.92rem; box-shadow: 0 4px 12px rgba(255, 179, 193, 0.3); }
+        .cute-alert strong { color: #a4133c; font-size: 1rem; }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background-color: var(--card-bg);
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
+        /* Card bo tròn xịn xò */
+        .card { background: #ffffff; border-radius: 24px; padding: 28px; margin-bottom: 25px; box-shadow: 0 8px 20px rgba(255, 182, 193, 0.2); border: 2px solid #ffe5ec; transition: transform 0.2s ease; }
+        .card:hover { transform: translateY(-3px); }
 
-        header {
-            text-align: center;
-            border-bottom: 3px solid var(--primary-color);
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-        }
+        /* Header profile */
+        .profile-header { display: flex; align-items: center; gap: 24px; }
+        .avatar { width: 125px; height: 125px; border-radius: 50%; object-fit: cover; border: 4px solid #ffb3c1; box-shadow: 0 6px 15px rgba(255, 143, 163, 0.4); flex-shrink: 0; }
+        .profile-info h1 { font-size: 1.8rem; color: #590d22; font-weight: 800; }
+        .headline { color: #ff4d6d; font-weight: 700; font-size: 0.98rem; margin: 4px 0 8px 0; }
+        .meta-text { color: #800f2f; font-size: 0.9rem; font-weight: 600; }
 
-        h1 {
-            color: var(--primary-color);
-            font-size: 24px;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+        .btn-group { display: flex; gap: 12px; margin-top: 15px; flex-wrap: wrap; }
+        .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-weight: 700; font-size: 0.9rem; transition: all 0.2s ease; }
+        .btn-pink { background: #ff758f; color: #ffffff; box-shadow: 0 4px 10px rgba(255, 117, 143, 0.4); }
+        .btn-pink:hover { background: #ff4d6d; transform: scale(1.03); }
+        .btn-soft { background: #ffe5ec; color: #a4133c; }
+        .btn-soft:hover { background: #ffc2d1; transform: scale(1.03); }
 
-        .subtitle {
-            font-style: italic;
-            color: #718096;
-            font-size: 14px;
-        }
+        h2 { font-size: 1.25rem; color: #a4133c; margin-bottom: 15px; font-weight: 800; border-bottom: 3px rounded #ffb3c1; padding-bottom: 6px; display: inline-block; }
 
-        .profile-header {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-bottom: 30px;
-            align-items: center;
-        }
+        /* Bảng phong cách kẹo ngọt */
+        .cute-table { width: 100%; border-collapse: separate; border-spacing: 0; border-radius: 16px; overflow: hidden; border: 1px solid #ffe5ec; margin-top: 8px; }
+        .cute-table th, .cute-table td { padding: 12px 16px; text-align: left; font-size: 0.92rem; }
+        .cute-table th { background: #ffe5ec; color: #800f2f; font-weight: 700; width: 32%; }
+        .cute-table td { background: #ffffff; color: #4a4a4a; border-bottom: 1px solid #fff0f3; font-weight: 600; }
 
-        .avatar-container {
-            flex: 0 0 180px;
-            text-align: center;
-        }
+        p, li { color: #5c4d51; font-size: 0.95rem; font-weight: 600; }
+        ul { padding-left: 20px; margin-top: 8px; }
+        li { margin-bottom: 8px; }
 
-        .avatar {
-            width: 180px;
-            height: 230px;
-            object-fit: cover;
-            border-radius: 8px;
-            border: 3px solid var(--secondary-color);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-        }
-
-        .info-table {
-            flex: 1;
-            min-width: 300px;
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .info-table th, .info-table td {
-            padding: 10px 12px;
-            text-align: left;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .info-table th {
-            background-color: #ebf8ff;
-            color: var(--primary-color);
-            width: 35%;
-            font-weight: 600;
-        }
-
-        section {
-            margin-bottom: 30px;
-        }
-
-        h2 {
-            color: var(--secondary-color);
-            font-size: 18px;
-            border-left: 4px solid var(--accent-color);
-            padding-left: 10px;
-            margin-top: 0;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-
-        .headline-box {
-            background-color: #ebf8ff;
-            border-left: 4px solid var(--accent-color);
-            padding: 15px;
-            font-weight: bold;
-            color: var(--primary-color);
-            border-radius: 0 8px 8px 0;
-        }
-
-        ul {
-            padding-left: 20px;
-            margin-top: 5px;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-
-        .link-button {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-            transition: background-color 0.2s;
-            margin-top: 5px;
-        }
-
-        .link-button:hover {
-            background-color: var(--primary-color);
-        }
-
-        .status-badge {
-            display: inline-block;
-            background-color: #38a169;
-            color: white;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: bold;
-        }
+        .badge-active { background: #e8f5e9; color: #2e7d32; padding: 4px 14px; border-radius: 15px; font-weight: 700; font-size: 0.85rem; border: 1px solid #c8e6c9; display: inline-block; }
+        a.inline-link { color: #ff4d6d; text-decoration: none; font-weight: 700; }
+        a.inline-link:hover { text-decoration: underline; }
 
         @media (max-width: 600px) {
-            .profile-header {
-                flex-direction: column;
-                align-items: center;
-            }
-            .container {
-                padding: 20px;
-            }
+            .profile-header { flex-direction: column; text-align: center; }
+            .btn-group { justify-content: center; }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <header>
-        <h1>HỒ SƠ ĐỊNH VỊ SỐ CÁ NHÂN</h1>
-        <div class="subtitle">(Phương án thay thế LinkedIn theo hướng dẫn sự cố kỹ thuật)</div>
-    </header>
 
-    <div class="profile-header">
-        <div class="avatar-container">
-            <img class="avatar" src="1783071172513_38006568058001703_1047253683761158184_ed1994637eba476b8cf42e0380990ea3.jpg" alt="Ảnh đại diện Trần Văn Bình">
+    <!-- Thông báo giải trình -->
+    <div class="cute-alert">
+        <strong>🌸 BÁO CÁO SỰ CỐ KỸ THUẬT (PHẦN A - BÀI TH.01) 🌸</strong>
+        Trang web dễ thương này được tạo trên GitHub Pages để thay thế hoàn toàn cho tài khoản LinkedIn cá nhân do hệ thống bị lỗi xác minh reCAPTCHA / chặn truy cập theo đúng tài liệu hướng dẫn nè!
+    </div>
+
+    <!-- Header Cá Nhân -->
+    <div class="card">
+        <div class="profile-header">
+            <img class="avatar" src="https://raw.githubusercontent.com/k265520216450-spec/portfolio/main/avatar.jpg" alt="Trần Văn Bình" onerror="this.src='https://ui-avatars.com/api/?name=Tran+Van+Binh&background=ffb3c1&color=fff'">
+            <div class="profile-info">
+                <h1>Trần Văn Bình 🎀</h1>
+                <div class="headline">✨ Sinh viên Kỹ thuật | Chuyên sâu Năng lực số, Quản trị Cloud & AI ✨</div>
+                <div class="meta-text">
+                    🏫 Trường Đại học Kỹ thuật Công nghiệp - Đại học Thái Nguyên (TNUT)<br>
+                    🆔 MSV: <code>k265520216450</code> | 🎓 Khóa: K62 Kỹ thuật
+                </div>
+                <div class="btn-group">
+                    <a href="https://github.com/k265520216450-spec/portfolio" target="_blank" class="btn btn-pink">📁 Ghé kho code GitHub</a>
+                    <a href="mailto:tranbinh.zillnopro@gmail.com" class="btn btn-soft">✉️ Gửi Mail cho mình</a>
+                </div>
+            </div>
         </div>
-        
-        <table class="info-table">
+    </div>
+
+    <!-- Bảng Thông tin cơ bản -->
+    <div class="card">
+        <h2>📑 THÔNG TIN CƠ BẢN</h2>
+        <table class="cute-table">
             <tr>
-                <th>Họ và tên:</th>
-                <td><strong>Trần Văn Bình</strong></td>
+                <th>Họ và tên</th>
+                <td>Trần Văn Bình</td>
             </tr>
             <tr>
-                <th>Mã sinh viên:</th>
-                <td>k265520216450</td>
+                <th>Mã sinh viên</th>
+                <td><code>k265520216450</code></td>
             </tr>
             <tr>
-                <th>Đơn vị đào tạo:</th>
+                <th>Đơn vị đào tạo</th>
                 <td>Trường Đại học Kỹ thuật Công nghiệp - Đại học Thái Nguyên (TNUT)</td>
             </tr>
             <tr>
-                <th>Lớp / Khóa:</th>
-                <td>K62ĐKT.K07</td>
+                <th>Lớp / Khóa</th>
+                <td>K62 Kỹ thuật</td>
             </tr>
             <tr>
-                <th>Email & SĐT:</th>
-                <td>Email: <a href="mailto:tranbinh.zillnopro@gmail.com">tranbinh.zillnopro@gmail.com</a><br>SĐT: 0964952492</td>
+                <th>Email & SĐT</th>
+                <td>Email: <a href="mailto:tranbinh.zillnopro@gmail.com" class="inline-link">tranbinh.zillnopro@gmail.com</a> | SĐT: 0964952492</td>
             </tr>
             <tr>
-                <th>Ngày cập nhật:</th>
+                <th>Ngày cập nhật</th>
                 <td>08/09/2026</td>
             </tr>
         </table>
     </div>
 
-    <section>
-        <h2>1. HEADLINE (TIÊU ĐỀ NĂNG LỰC)</h2>
-        <div class="headline-box">
-            Sinh viên Kỹ thuật | Chuyên sâu Năng lực số, Quản trị Cloud & Ứng dụng Trí tuệ Nhân tạo (AI)
-        </div>
-    </section>
+    <!-- Giới thiệu bản thân -->
+    <div class="card">
+        <h2>🌱 2. ABOUT (GIỚI THIỆU BẢN THÂN)</h2>
+        <p style="text-align: justify; margin-bottom: 12px;">
+            Tôi là sinh viên năm nhất ngành Công nghệ Kỹ thuật điều khiển và Tự động hóa tại Trường Đại học Kỹ thuật Công nghiệp, tôi đang chủ động trang bị nền tảng năng lực số toàn diện đáp ứng tiêu chuẩn Công nghiệp 4.0. Hiện tại, tôi tập trung làm chủ các hệ thống đồng bộ dữ liệu đám mây, tối ưu hóa quản lý dự án qua Git/GitHub và ứng dụng AI vào nghiên cứu. Dù mới bắt đầu hành trình đại học, nhưng tôi đã tự xây dựng thành công trang Portfolio cá nhân trực tuyến trên GitHub Pages để lưu trữ sản phẩm thực hành. Với mục tiêu nắm vững chuyên môn điều khiển tự động và phát triển tư duy kỹ thuật, tôi luôn sẵn sàng học hỏi và tìm kiếm các cơ hội thực tập, trải nghiệm thực tế.
+        </p>
+        <ul>
+            <li>📌 <strong>Định hướng học tập:</strong> Tập trung làm chủ các hệ thống đồng bộ đám mây (Cloud Synchronization), tối ưu hóa quy trình làm việc với Git/GitHub, và khai thác công cụ AI để nâng cao hiệu suất học tập - nghiên cứu.</li>
+            <li>📌 <strong>Mục tiêu ngắn hạn:</strong> Hoàn thành xuất sắc học phần Năng lực số, phát triển các dự án lưu trữ mã nguồn mở và chuẩn bị hồ sơ ứng tuyển thực tập chuyên nghiệp.</li>
+        </ul>
+    </div>
 
-    <section>
-        <h2>2. ABOUT (GIỚI THIỆU BẢN THÂN)</h2>
-        <p>Tôi là sinh viên năm nhất ngành Công nghệ Kỹ thuật điều khiển và Tự động hóa tại Trường Đại học Kỹ thuật Công nghiệp, tôi đang chủ động trang bị nền tảng năng lực số toàn diện đáp ứng tiêu chuẩn Công nghiệp 4.0. Hiện tại, tôi tập trung làm chủ các hệ thống đồng bộ dữ liệu đám mây, tối ưu hóa quản lý dự án qua Git/GitHub và ứng dụng AI vào nghiên cứu. Dù mới bắt đầu hành trình đại học, nhưng tôi đã tự xây dựng thành công trang Portfolio cá nhân trực tuyến trên GitHub Pages để lưu trữ sản phẩm thực hành. Với mục tiêu nắm vững chuyên môn điều khiển tự động và phát triển tư duy kỹ thuật, tôi luôn sẵn sàng học hỏi và tìm kiếm các cơ hội thực tập, trải nghiệm thực tế.</p>
+    <!-- Học vấn & Kỹ năng -->
+    <div class="card">
+        <h2>🎓 3. EDUCATION & COMPETENCIES</h2>
         
-        <ul>
-            <li><strong>Định hướng học tập:</strong> Tập trung làm chủ các hệ thống đồng bộ đám mây (Cloud Synchronization), tối ưu hóa quy trình làm việc với Git/GitHub, và khai thác công cụ AI để nâng cao hiệu suất học tập - nghiên cứu.</li>
-            <li><strong>Mục tiêu ngắn hạn:</strong> Hoàn thành xuất sắc học phần Năng lực số, phát triển các dự án lưu trữ mã nguồn mở và chuẩn bị hồ sơ ứng tuyển thực tập chuyên nghiệp.</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>3. EDUCATION & COMPETENCIES (HỌC VẤN & KỸ NĂNG CỐT LỎI)</h2>
-        <h3>A. Học vấn chính quy</h3>
-        <ul>
-            <li><strong>Cơ sở đào tạo:</strong> Trường Đại học Kỹ thuật Công nghiệp - Đại học Thái Nguyên</li>
-            <li><strong>Hệ đào tạo:</strong> Đại học chính quy</li>
+        <p style="color: #ff4d6d; font-weight: 700; margin-bottom: 6px;">A. Học vấn chính quy</p>
+        <ul style="margin-bottom: 16px;">
+            <li>🏫 <strong>Cơ sở đào tạo:</strong> Trường Đại học Kỹ thuật Công nghiệp - Đại học Thái Nguyên (TNUT)</li>
+            <li>📜 <strong>Hệ đào tạo:</strong> Đại học chính quy (Ngành Công nghệ Kỹ thuật điều khiển và Tự động hóa)</li>
         </ul>
 
-        <h3>B. Khung Năng lực số cá nhân</h3>
-        <ol>
-            <li><strong>Quản trị danh tính số:</strong> Thiết lập và vận hành các kênh truyền thông chuyên nghiệp (GitHub, Google Workspace).</li>
-            <li><strong>Quản lý dữ liệu Cloud:</strong> Thành thạo đồng bộ đa thiết bị, phân quyền công khai và quản lý lịch sử phiên bản (Version History) trên Google Drive / OneDrive.</li>
-            <li><strong>Phát triển Web / Low-code:</strong> Dựng và triển khai trang web cá nhân tự động thông qua GitHub Pages.</li>
-        </ol>
-    </section>
+        <p style="color: #ff4d6d; font-weight: 700; margin-bottom: 6px;">B. Khung Năng lực số cá nhân</p>
+        <ul>
+            <li>1️⃣ <strong>Quản trị danh tính số:</strong> Thiết lập và vận hành các kênh truyền thông chuyên nghiệp (GitHub, Google Workspace).</li>
+            <li>2️⃣ <strong>Quản lý dữ liệu Cloud:</strong> Thành thạo đồng bộ đa thiết bị, phân quyền công khai và quản lý lịch sử phiên bản (Version History) trên Google Drive / OneDrive.</li>
+            <li>3️⃣ <strong>Phát triển Web / Low-code:</strong> Dựng và triển khai trang web cá nhân tự động thông qua GitHub Pages.</li>
+        </ul>
+    </div>
 
-    <section>
-        <h2>4. SẢN PHẨM TRỰC TUYẾN (PORTFOLIO)</h2>
-        <p><strong>Website Portfolio cá nhân:</strong> <a href="https://k265520216450-spec.github.io/portfolio/" target="_blank">https://k265520216450-spec.github.io/portfolio/</a></p>
-        <p><strong>Trạng thái vận hành:</strong> <span class="status-badge">Active</span> (Đã xuất bản trực tuyến công khai)</p>
-        <div style="margin-top: 15px;">
-            <a href="https://k265520216450-spec.github.io/portfolio/" target="_blank" class="link-button">Truy cập Website Portfolio</a>
-        </div>
-    </section>
+    <!-- Portfolio Link -->
+    <div class="card">
+        <h2>🚀 4. SẢN PHẨM TRỰC TUYẾN (PORTFOLIO)</h2>
+        <p>🌐 <strong>Website Portfolio cá nhân:</strong> <a href="https://k265520216450-spec.github.io/portfolio/" target="_blank" class="inline-link">https://k265520216450-spec.github.io/portfolio/</a></p>
+        <p style="margin-top: 10px;">⚡ <strong>Trạng thái vận hành:</strong> <span class="badge-active">Active (Đã xuất bản trực tuyến công khai)</span></p>
+    </div>
+
 </div>
 
 </body>
