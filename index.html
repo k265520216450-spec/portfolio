@@ -8,15 +8,19 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
         
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: #0b132b; color: #e0e1dd; font-family: 'Inter', sans-serif; line-height: 1.6; padding: 40px 15px; display: flex; justify-content: center; }
-        .container { max-width: 850px; width: 100%; }
+        body { background-color: #0b132b; color: #e0e1dd; font-family: 'Inter', sans-serif; line-height: 1.6; padding: 40px 15px; display: flex; justify-content: center; position: relative; overflow-x: hidden; }
+        
+        /* Canvas tạo hiệu ứng sao chạy ngầm phía sau */
+        #starfield { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; }
+
+        .container { max-width: 850px; width: 100%; position: relative; z-index: 1; }
 
         /* Banner thông báo sự cố */
-        .system-alert { background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.25); border-radius: 12px; padding: 18px 24px; margin-bottom: 24px; color: #fca5a5; font-size: 0.92rem; }
+        .system-alert { background: rgba(239, 68, 68, 0.12); border: 1px solid rgba(239, 68, 68, 0.3); backdrop-filter: blur(8px); border-radius: 12px; padding: 18px 24px; margin-bottom: 24px; color: #fca5a5; font-size: 0.92rem; }
         .system-alert strong { color: #f87171; font-family: 'JetBrains Mono', monospace; font-size: 0.88rem; display: block; margin-bottom: 4px; }
 
         /* Thẻ nội dung chính */
-        .mecha-card { background: #1c2541; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 32px; margin-bottom: 24px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35); position: relative; }
+        .mecha-card { background: rgba(28, 37, 65, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 32px; margin-bottom: 24px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45); }
         
         /* Header Profile */
         .profile-header { display: flex; align-items: center; gap: 28px; }
@@ -24,7 +28,7 @@
         .profile-info h1 { font-size: 1.9rem; color: #ffffff; font-weight: 800; letter-spacing: -0.5px; }
         .headline { color: #48cae4; font-weight: 700; font-size: 0.98rem; margin: 4px 0 10px 0; font-family: 'JetBrains Mono', monospace; letter-spacing: -0.2px; }
         .meta-text { color: #94a3b8; font-size: 0.92rem; font-weight: 500; line-height: 1.6; }
-        .meta-text code { color: #48cae4; background: rgba(72, 202, 228, 0.1); padding: 2px 8px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.88rem; }
+        .meta-text code { color: #48cae4; background: rgba(72, 202, 228, 0.15); padding: 2px 8px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.88rem; }
 
         .btn-group { display: flex; gap: 12px; margin-top: 18px; flex-wrap: wrap; }
         .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 22px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: all 0.2s ease; font-family: 'JetBrains Mono', monospace; }
@@ -38,7 +42,7 @@
         /* Bảng Data Matrix */
         .tech-table { width: 100%; border-collapse: separate; border-spacing: 0; border-radius: 10px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.08); }
         .tech-table th, .tech-table td { padding: 14px 18px; text-align: left; font-size: 0.92rem; }
-        .tech-table th { background: rgba(0, 0, 0, 0.2); color: #90e0ef; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; font-weight: 700; width: 32%; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .tech-table th { background: rgba(0, 0, 0, 0.25); color: #90e0ef; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; font-weight: 700; width: 32%; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
         .tech-table td { background: rgba(255, 255, 255, 0.02); color: #cbd5e1; font-weight: 500; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
         .tech-table tr:last-child th, .tech-table tr:last-child td { border-bottom: none; }
 
@@ -46,7 +50,7 @@
         ul { padding-left: 20px; margin-top: 10px; }
         li { margin-bottom: 10px; }
 
-        .status-online { display: inline-block; background: rgba(34, 197, 94, 0.12); color: #4ade80; border: 1px solid rgba(74, 222, 128, 0.3); padding: 4px 12px; border-radius: 20px; font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; font-weight: 700; }
+        .status-online { display: inline-block; background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid rgba(74, 222, 128, 0.3); padding: 4px 12px; border-radius: 20px; font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; font-weight: 700; }
         a.inline-link { color: #48cae4; text-decoration: none; font-weight: 600; }
         a.inline-link:hover { text-decoration: underline; }
 
@@ -58,6 +62,9 @@
 </head>
 <body>
 
+<!-- Nền hiệu ứng ngôi sao -->
+<canvas id="starfield"></canvas>
+
 <div class="container">
 
     <div class="system-alert">
@@ -67,7 +74,6 @@
 
     <div class="mecha-card">
         <div class="profile-header">
-            <!-- Đường dẫn ảnh nội bộ trực tiếp từ repo GitHub của m, bao không bao giờ lỗi -->
             <img class="avatar" src="avatar.jpg" alt="Trần Văn Bình" onerror="this.src='https://raw.githubusercontent.com/k265520216450-spec/portfolio/main/avatar.jpg'">
             <div class="profile-info">
                 <h1>TRẦN VĂN BÌNH</h1>
@@ -149,6 +155,68 @@
     </div>
 
 </div>
+
+<!-- Script điều khiển hiệu ứng sao nhảy lấp lánh -->
+<script>
+    const canvas = document.getElementById('starfield');
+    const ctx = canvas.getContext('2d');
+
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+
+    window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+    });
+
+    // Tạo danh sách 80 ngôi sao nhỏ với tốc độ và vị trí ngẫu nhiên
+    const stars = [];
+    const numStars = 80;
+
+    for (let i = 0; i < numStars; i++) {
+        stars.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            radius: Math.random() * 1.8 + 0.5,
+            vx: (Math.random() - 0.5) * 0.6,
+            vy: (Math.random() - 0.5) * 0.6,
+            alpha: Math.random(),
+            alphaSpeed: Math.random() * 0.02 + 0.005
+        });
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        stars.forEach(star => {
+            // Cập nhật vị trí
+            star.x += star.vx;
+            star.y += star.vy;
+
+            // Nảy lại khi chạm cạnh màn hình
+            if (star.x < 0 || star.x > width) star.vx *= -1;
+            if (star.y < 0 || star.y > height) star.vy *= -1;
+
+            // Hiệu ứng nhấp nháy sáng tối
+            star.alpha += star.alphaSpeed;
+            if (star.alpha <= 0.2 || star.alpha >= 1) {
+                star.alphaSpeed *= -1;
+            }
+
+            // Vẽ ngôi sao
+            ctx.beginPath();
+            ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(144, 224, 239, ${Math.abs(star.alpha)})`;
+            ctx.shadowBlur = 8;
+            ctx.shadowColor = '#48cae4';
+            ctx.fill();
+        });
+
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+</script>
 
 </body>
 </html>
