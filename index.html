@@ -5,32 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Trần Văn Bình</title>
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px; background: #f4f6f9; color: #333; }
-        .card { background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        h1 { color: #0056b3; margin-bottom: 5px; }
-        .tag { background: #e7f1ff; color: #0056b3; padding: 4px 12px; border-radius: 15px; font-weight: bold; display: inline-block; }
-        ul { padding-left: 20px; }
-        .btn { display: inline-block; background: #0056b3; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; margin-top: 15px; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background: #0f172a; color: #f8fafc; line-height: 1.6; padding: 40px 20px; display: flex; justify-content: center; }
+        .card { background: #1e293b; max-width: 700px; width: 100%; border-radius: 16px; padding: 35px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.5), 0 8px 10px -6px rgba(0,0,0,0.5); border: 1px solid #334155; }
+        .header { display: flex; align-items: center; gap: 20px; margin-bottom: 25px; border-bottom: 1px solid #334155; padding-bottom: 20px; }
+        .avatar { width: 90px; height: 90px; border-radius: 50%; border: 3px solid #38bdf8; object-fit: cover; }
+        h1 { color: #f8fafc; font-size: 1.8rem; font-weight: 700; }
+        .tag { background: linear-gradient(135deg, #0284c7, #0369a1); color: #e0f2fe; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; display: inline-block; margin-top: 5px; }
+        h2 { color: #38bdf8; font-size: 1.2rem; margin: 25px 0 10px 0; display: flex; align-items: center; gap: 8px; }
+        p { color: #cbd5e1; font-size: 0.95rem; text-align: justify; }
+        .skills-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; list-style: none; }
+        .skills-grid li { background: #0f172a; color: #38bdf8; border: 1px solid #0284c7; padding: 6px 14px; border-radius: 8px; font-size: 0.9rem; font-weight: 500; transition: all 0.3s ease; }
+        .skills-grid li:hover { background: #38bdf8; color: #0f172a; transform: translateY(-2px); }
+        .btn-container { margin-top: 30px; display: flex; gap: 12px; }
+        .btn { display: inline-block; background: linear-gradient(135deg, #0284c7, #2563eb); color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: opacity 0.2s; }
+        .btn:hover { opacity: 0.9; }
     </style>
 </head>
 <body>
     <div class="card">
-        <h1>Trần Văn Bình</h1>
-        <p class="tag">Sinh viên Trường Đại học Kỹ thuật Công nghiệp (TNUT)</p>
-        
+        <div class="header">
+            <img class="avatar" src="https://raw.githubusercontent.com/k265520216450-spec/portfolio/main/avatar.jpg" alt="Trần Văn Bình" onerror="this.src='https://ui-avatars.com/api/?name=Tran+Van+Binh&background=0284c7&color=fff'">
+            <div>
+                <h1>Trần Văn Bình</h1>
+                <span class="tag">SV Năm nhất — ĐH Kỹ thuật Công nghiệp (TNUT)</span>
+            </div>
+        </div>
+
         <h2>📌 Giới thiệu bản thân</h2>
-        <p>Tôi là sinh viên năm nhất ngành Công nghệ Kỹ thuật điều khiển và Tự động hóa tại Trường Đại học Kỹ thuật Công nghiệp, tôi đang chủ động trang bị nền tảng năng lực số toàn diện đáp ứng tiêu chuẩn Công nghiệp 4.0. Hiện tại, tôi tập trung làm chủ các hệ thống đồng bộ dữ liệu đám mây, tối ưu hóa quản lý dự án qua Git/GitHub và ứng dụng AI vào nghiên cứu. Dù mới bắt đầu hành trình đại học,nhưng tôi đã tự xây dựng thành công trang Portfolio cá nhân trực tuyến trên GitHub Pages để lưu trữ sản phẩm thực hành. Với mục tiêu nắm vững chuyên môn điều khiển tự động và phát triển tư duy kỹ thuật, tôi luôn sẵn sàng học hỏi và tìm kiếm các cơ hội thực tập, trải nghiệm thực tế 
+        <p>Là sinh viên năm nhất ngành Công nghệ Kỹ thuật điều khiển và Tự động hóa tại TNUT, tôi đang chủ động trang bị nền tảng năng lực số toàn diện đáp ứng tiêu chuẩn Công nghiệp 4.0. Hiện tại, tôi tập trung làm chủ các hệ thống đồng bộ dữ liệu đám mây, tối ưu hóa quản lý dự án qua Git/GitHub và ứng dụng AI vào nghiên cứu. Dù mới bắt đầu hành trình đại học, tôi đã tự xây dựng trang Portfolio cá nhân trực tuyến để lưu trữ sản phẩm thực hành và luôn sẵn sàng học hỏi, tìm kiếm các cơ hội trải nghiệm thực tế.</p>
 
-
-        <h2>💡 Kỹ năng cốt lõi</h2>
-        <ul>
-            <li>Quản lý danh tính số và xây dựng hồ sơ chuyên nghiệp</li>
-            <li>Đồng bộ và quản trị dữ liệu đa thiết bị trên Cloud</li>
-            <li>Sử dụng GitHub, Git và các công cụ AI hỗ trợ công việc</li>
+        <h2>⚡ Kỹ năng cốt lõi</h2>
+        <ul class="skills-grid">
+            <li>⚙️ Điều khiển & Tự động hóa</li>
+            <li>☁️ Quản trị Cloud & Google Drive</li>
+            <li>🐙 Git & GitHub Pages</li>
+            <li>🤖 Ứng dụng AI trong học tập</li>
+            <li>🆔 Quản lý danh tính số</li>
         </ul>
 
-        <h2>🔗 Kết nối với tôi</h2>
-        <a href="https://github.com/k265520216450-spec" class="btn" target="_blank">Ghé thăm GitHub Profile</a>
+        <div class="btn-container">
+            <a href="mailto:k265520216450@tnut.edu.vn" class="btn">📧 Liên hệ Email</a>
+        </div>
     </div>
 </body>
 </html>
