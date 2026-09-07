@@ -80,6 +80,7 @@
                 <div class="headline">SYSTEM ENGINEER // AUTOMATION & CONTROL</div>
                 <div class="meta-text">
                     🏫 ĐƠN VỊ: Trường Đại học Kỹ thuật Công nghiệp - ĐH Thái Nguyên (TNUT)<br>
+                    ⚙️ NGÀNH: Công nghệ Kỹ thuật điều khiển và Tự động hóa<br>
                     🆔 MSV: <code>k265520216450</code> | 🎓 KHÓA: K62ĐKT.K07
                 </div>
                 <div class="btn-group">
@@ -104,6 +105,10 @@
             <tr>
                 <th>ĐƠN VỊ ĐÀO TẠO</th>
                 <td>Trường Đại học Kỹ thuật Công nghiệp - Đại học Thái Nguyên (TNUT)</td>
+            </tr>
+            <tr>
+                <th>NGÀNH ĐÀO TẠO</th>
+                <td>Công nghệ Kỹ thuật điều khiển và Tự động hóa</td>
             </tr>
             <tr>
                 <th>LỚP / KHÓA</th>
@@ -169,7 +174,6 @@
         height = canvas.height = window.innerHeight;
     });
 
-    // Tạo danh sách 80 ngôi sao nhỏ với tốc độ và vị trí ngẫu nhiên
     const stars = [];
     const numStars = 80;
 
@@ -189,21 +193,17 @@
         ctx.clearRect(0, 0, width, height);
 
         stars.forEach(star => {
-            // Cập nhật vị trí
             star.x += star.vx;
             star.y += star.vy;
 
-            // Nảy lại khi chạm cạnh màn hình
             if (star.x < 0 || star.x > width) star.vx *= -1;
             if (star.y < 0 || star.y > height) star.vy *= -1;
 
-            // Hiệu ứng nhấp nháy sáng tối
             star.alpha += star.alphaSpeed;
             if (star.alpha <= 0.2 || star.alpha >= 1) {
                 star.alphaSpeed *= -1;
             }
 
-            // Vẽ ngôi sao
             ctx.beginPath();
             ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
             ctx.fillStyle = `rgba(144, 224, 239, ${Math.abs(star.alpha)})`;
