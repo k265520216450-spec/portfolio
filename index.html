@@ -9,7 +9,7 @@
         
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { 
-            background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 50%, #dbeafe 100%); 
+            background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 45%, #bae6fd 100%); 
             color: #1e293b; 
             font-family: 'Inter', sans-serif; 
             line-height: 1.6; 
@@ -21,7 +21,7 @@
             min-height: 100vh;
         }
         
-        /* Canvas tạo hiệu ứng hạt chuyển động ngầm phía sau */
+        /* Canvas hiệu ứng sao nhấp nháy + sao băng */
         #starfield { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; }
 
         .container { max-width: 850px; width: 100%; position: relative; z-index: 1; }
@@ -61,7 +61,7 @@
         /* Hiệu ứng di chuột nổi bật */
         .mecha-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 30px -10px rgba(2, 132, 199, 0.18);
+            box-shadow: 0 20px 30px -10px rgba(2, 132, 199, 0.2);
             border-color: #0284c7;
         }
 
@@ -206,7 +206,7 @@
 </head>
 <body>
 
-<!-- Nền hiệu ứng hạt lấp lánh trên nền sáng -->
+<!-- Canvas tạo sao & sao băng -->
 <canvas id="starfield"></canvas>
 
 <div class="container">
@@ -305,7 +305,7 @@
 
 </div>
 
-<!-- Script điều khiển hiệu ứng hạt xanh lấp lánh trên nền sáng -->
+<!-- Script điều khiển ngôi sao lấp lánh & sao băng xẹt qua -->
 <script>
     const canvas = document.getElementById('starfield');
     const ctx = canvas.getContext('2d');
@@ -318,24 +318,50 @@
         height = canvas.height = window.innerHeight;
     });
 
+    // 1. TẠO 160 NGOI SAO NHẤP NHÁY
     const stars = [];
-    const numStars = 70;
+    const numStars = 160;
+    const starColors = ['rgba(2, 132, 199, ', 'rgba(37, 99, 235, ', 'rgba(13, 148, 136, ', 'rgba(14, 165, 233, '];
 
     for (let i = 0; i < numStars; i++) {
         stars.push({
             x: Math.random() * width,
             y: Math.random() * height,
-            radius: Math.random() * 2 + 0.8,
+            radius: Math.random() * 2.2 + 0.6,
             vx: (Math.random() - 0.5) * 0.5,
             vy: (Math.random() - 0.5) * 0.5,
             alpha: Math.random(),
-            alphaSpeed: Math.random() * 0.015 + 0.005
+            alphaSpeed: Math.random() * 0.02 + 0.008,
+            color: starColors[Math.floor(Math.random() * starColors.length)]
         });
     }
+
+    // 2. TẠO HIỆU ỨNG SAO BĂNG (SHOOTING STARS)
+    const meteors = [];
+
+    function createMeteor() {
+        meteors.push({
+            x: Math.random() * width * 0.8,
+            y: Math.random() * (height * 0.4),
+            length: Math.random() * 90 + 70,
+            speed: Math.random() * 8 + 12,
+            size: Math.random() * 1.5 + 1.2,
+            alpha: 1,
+            decay: Math.random() * 0.015 + 0.01
+        });
+    }
+
+    // Tạo sao băng liên tục mỗi 1.2 giây
+    setInterval(() => {
+        if (meteors.length < 4) {
+            createMeteor();
+        }
+    }, 1200);
 
     function animate() {
         ctx.clearRect(0, 0, width, height);
 
+        // Vẽ các ngôi sao
         stars.forEach(star => {
             star.x += star.vx;
             star.y += star.vy;
@@ -344,15 +370,50 @@
             if (star.y < 0 || star.y > height) star.vy *= -1;
 
             star.alpha += star.alphaSpeed;
-            if (star.alpha <= 0.2 || star.alpha >= 0.9) {
+            if (star.alpha <= 0.2 || star.alpha >= 0.95) {
                 star.alphaSpeed *= -1;
             }
 
             ctx.beginPath();
             ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(2, 132, 199, ${Math.abs(star.alpha) * 0.5})`;
+            ctx.fillStyle = `${star.color}${Math.abs(star.alpha) * 0.85})`;
             ctx.fill();
         });
+
+        // Vẽ các dải sao băng
+        for (let i = meteors.length - 1; i >= 0; i--) {
+            const m = meteors[i];
+            m.x += m.speed;
+            m.y += m.speed * 0.55;
+            m.alpha -= m.decay;
+
+            if (m.alpha <= 0 || m.x > width || m.y > height) {
+                meteors.splice(i, 1);
+                continue;
+            }
+
+            const tailX = m.x - m.length;
+            const tailY = m.y - m.length * 0.55;
+
+            const gradient = ctx.createLinearGradient(m.x, m.y, tailX, tailY);
+            gradient.addColorStop(0, `rgba(2, 132, 199, ${m.alpha})`);
+            gradient.addColorStop(0.3, `rgba(37, 99, 235, ${m.alpha * 0.6})`);
+            gradient.addColorStop(1, `rgba(2, 132, 199, 0)`);
+
+            ctx.beginPath();
+            ctx.moveTo(m.x, m.y);
+            ctx.lineTo(tailX, tailY);
+            ctx.strokeStyle = gradient;
+            ctx.lineWidth = m.size;
+            ctx.lineCap = 'round';
+            ctx.stroke();
+
+            // Điểm phát sáng ở đầu sao băng
+            ctx.beginPath();
+            ctx.arc(m.x, m.y, m.size * 1.3, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(2, 132, 199, ${m.alpha})`;
+            ctx.fill();
+        }
 
         requestAnimationFrame(animate);
     }
